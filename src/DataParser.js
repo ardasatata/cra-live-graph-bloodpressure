@@ -97,6 +97,7 @@ class DataParser extends Component {
                 <LineChart
                     labels={this.state.index}
                     data={this.state.SBP}
+                    min={this.state.index.length - 400}
                     color="#3E517A"
                 >
 

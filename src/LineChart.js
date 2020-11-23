@@ -12,6 +12,7 @@ class LineChart extends React.Component {
     componentDidUpdate() {
         this.myChart.data.labels = this.props.labels;
         this.myChart.data.datasets[0].data = this.props.data;
+        this.myChart.options.scales.xAxes[0].ticks.min = this.props.min
         this.myChart.update();
     }
 
@@ -24,11 +25,19 @@ class LineChart extends React.Component {
                         {
                             ticks: {
                                 min: 60,
-                                max: 200,
-                                stepSize: 50
+                                max: 140,
+                                stepSize: 20
                             }
                         }
-                    ]
+                    ],
+                    xAxes: [
+                        {
+                            ticks: {
+                                stepSize: 100,
+                                maxTicksLimit: 10,
+                                min: 0
+                        }
+                    }]
                 }
             },
             data: {
