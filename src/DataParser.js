@@ -64,9 +64,10 @@ class DataParser extends Component {
 
 
         for (var i = 1; i < this.state.data.length; i++) {
-            console.log(this.state.data[i][0].replace(/\n/g, ''))
-            localIndex[i] = this.state.data[i][0].replace(/\n/g, '')
-            localSBP[i] = this.state.data[i][1]
+            console.log(this.state.data[i][0])
+            // localIndex[i] = this.state.data[i][0].replace(/\n/g, '')
+            localIndex[i] = i
+            localSBP[i] = this.state.data[i][0]
             await timer(8)
             this.setState({
                 index : localIndex,
