@@ -46,18 +46,18 @@ class LineChart extends React.Component {
                     label: this.props.title,
                     data: this.props.data,
                     fill: 'none',
-                    backgroundColor: this.props.color,
+                    backgroundColor: '#FFFFFF',
                     pointRadius: 0,
-                    borderColor: this.props.color,
-                    borderWidth: 1,
-                    lineTension: 0.5
+                    borderColor: this.props.lineColor,
+                    borderWidth: 3,
+                    lineTension: 0.2
                 }]
             }
         });
     }
 
     render() {
-        return <canvas ref={this.chartRef} />;
+        return <canvas height={this.props.height} width={this.props.width} ref={this.chartRef} />;
     }
 }
 
