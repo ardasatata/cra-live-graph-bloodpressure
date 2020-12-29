@@ -11,7 +11,9 @@ class LineChart extends React.Component {
 
     componentDidUpdate() {
         this.myChart.data.labels = this.props.labels;
-        this.myChart.data.datasets[0].data = this.props.data;
+        this.myChart.data.datasets[0].data = this.props.data[0];
+        this.myChart.data.datasets[1].data = this.props.data[1];
+        // this.myChart.data.datasets[2].data = this.props.data[2];
         this.myChart.options.scales.xAxes[0].ticks.min = this.props.min
         this.myChart.update();
     }
@@ -24,8 +26,8 @@ class LineChart extends React.Component {
                     yAxes: [
                         {
                             ticks: {
-                                min: 60,
-                                max: 140,
+                                min: 0,
+                                max: 1,
                                 stepSize: 20
                             }
                         }
@@ -33,7 +35,7 @@ class LineChart extends React.Component {
                     xAxes: [
                         {
                             ticks: {
-                                stepSize: 100,
+                                stepSize: 200,
                                 maxTicksLimit: 10,
                                 min: 0
                         }
@@ -43,15 +45,36 @@ class LineChart extends React.Component {
             data: {
                 labels: this.props.labels,
                 datasets: [{
-                    label: this.props.title,
-                    data: this.props.data,
+                    label: 'ECG',
+                    data: this.props.data[0],
                     fill: 'none',
                     backgroundColor: '#FFFFFF',
                     pointRadius: 0,
-                    borderColor: this.props.lineColor,
+                    borderColor: this.props.lineColor[0],
                     borderWidth: 3,
                     lineTension: 0.2
-                }]
+                },
+                {
+                    label: 'PPG',
+                    data: this.props.data[1],
+                    fill: 'none',
+                    backgroundColor: '#FFFFFF',
+                    pointRadius: 0,
+                    borderColor: this.props.lineColor[1],
+                    borderWidth: 3,
+                    lineTension: 0.2
+                },
+                // {
+                //     label: 'MBP',
+                //     data: this.props.data[2],
+                //     fill: 'none',
+                //     backgroundColor: '#FFFFFF',
+                //     pointRadius: 0,
+                //     borderColor: this.props.lineColor[2],
+                //     borderWidth: 3,
+                //     lineTension: 0.2
+                // }
+                ]
             }
         });
     }
